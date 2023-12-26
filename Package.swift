@@ -6,18 +6,29 @@ import PackageDescription
 let package = Package(
     name: "EMCustomPkg",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "EMCustomPkg",
             targets: ["EMCustomPkg"]),
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/dvvostr/StudiqCore",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/dvvostr/StudiqUI",
+            branch: "main"
+        ),
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "EMCustomPkg"),
-        .testTarget(
-            name: "EMCustomPkgTests",
-            dependencies: ["EMCustomPkg"]),
+            name: "EMCustomPkg",
+            dependencies: [
+                "StudiqCore",
+                "StudiqUI",
+            ],
+            resources: [Resource.process("Resources")]
+        ),
+        
     ]
 )
