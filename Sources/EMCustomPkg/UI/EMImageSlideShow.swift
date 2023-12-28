@@ -17,7 +17,6 @@ extension CustomControl.Defaults.Control {
         let view = UIPageControl()
         view.pageIndicatorTintColor = CustomControl.Defaults.Control.SlideShow.Color.inactivePageIndicator
         view.currentPageIndicatorTintColor = CustomControl.Defaults.Control.SlideShow.Color.activePageIndicator
-        
         if let view = view.subviews.first {
             view.backgroundColor = CustomControl.Defaults.Color.background.withAlphaComponent(0.80)
             view.layer.cornerRadius = 5.0
@@ -59,6 +58,7 @@ extension CustomControl.Defaults.Control {
         self.pageIndicatorPosition = PageIndicatorPosition(vertical: .bottom)
         self.pageIndicator = intPageControl
         self.activityIndicator = DefaultActivityIndicator()
+//        self.pageIndicator?.view.setHeight(17)
 // for new version
 //        self.addSubview(self.intIndicatorControl)
 //        self.intIndicatorControl.anchorCenterXToSuperview()

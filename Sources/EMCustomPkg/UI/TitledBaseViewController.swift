@@ -40,6 +40,20 @@ open class TitledBaseViewController: BaseViewController {
     open override func setup() {
         super.setup()
         self.navigationItem.titleView = self.intTitleView
+        navigationItem.hidesBackButton = true
+        if self.navigationController?.viewControllers.first != self {
+            let backButton = UIButton(frame: .zero)
+            backButton.setImage(UIImage.Preset.chevron_back?.withRenderingMode(.alwaysTemplate), for: UIControl.State.normal)
+            backButton.addTarget(self, action: #selector(handleButtonBackClick(sender: )), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: backButton)
+        }
+    }
+    @objc private func handleButtonBackClick(sender: Any?) {
+        var isContinue = true
+        navigationDidBack(&isContinue)
+        if isContinue {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
