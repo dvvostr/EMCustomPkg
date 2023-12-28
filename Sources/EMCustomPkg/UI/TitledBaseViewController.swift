@@ -9,8 +9,8 @@ open class TitledBaseViewController: BaseViewController {
     private var intTitleView: UIBaseNavigationTitleLabel = {
         let view = UIBaseNavigationTitleLabel()
         view.textAlignment = .center
-        view.textColor = UIBaseNavigationTitleLabel.appearance().textColor
-        view.font = UIBaseNavigationTitleLabel.appearance().defaultFont
+        view.textColor = CustomControl.Defaults.Color.text
+        view.font = CustomControl.Defaults.titleFont
         return view
     }()
     

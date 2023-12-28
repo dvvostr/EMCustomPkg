@@ -19,6 +19,8 @@ let package = Package(
             url: "https://github.com/dvvostr/StudiqUI",
             branch: "main"
         ),
+        .package(url: "https://github.com/zvonicek/ImageSlideshow", .upToNextMajor(from: "1.9.1")),
+        .package(url: "https://github.com/ElaWorkshop/TagListView", .upToNextMajor(from: "1.4.1")),
     ],
     targets: [
         .target(
@@ -26,6 +28,8 @@ let package = Package(
             dependencies: [
                 "StudiqCore",
                 "StudiqUI",
+                .product(name: "ImageSlideshow", package: "ImageSlideshow"),
+                .product(name: "TagListView", package: "TagListView"),
             ],
             resources: [Resource.process("Resources")]
         ),
